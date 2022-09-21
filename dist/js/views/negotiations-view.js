@@ -1,13 +1,8 @@
-import { Negotiations } from "../models/negotiations.js";
-
 export class NegotiationsView {
-
-    private element: HTMLElement;
-
-    constructor(select: string) {
-        this.element = document.querySelector(select)
+    constructor(select) {
+        this.element = document.querySelector(select);
     }
-    template(model: Negotiations): string {
+    template(model) {
         return `
         <table class="table table-hover table-bordered">
             <thead>
@@ -25,14 +20,13 @@ export class NegotiationsView {
                     <td>${negotiation.amount}</td>
                     <td>${negotiation.value}</td>
                 </tr>
-                `
+                `;
         }).join('')}
             </tbody>
         </table>
-        `
+        `;
     }
-
-    update(model: Negotiations): void {
+    update(model) {
         this.element.innerHTML = this.template(model);
     }
 }
