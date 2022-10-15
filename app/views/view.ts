@@ -1,13 +1,11 @@
-export class View<generics> {
+export abstract class View<generics> {
     protected element: HTMLElement;
     
     constructor(select: string){
         this.element = document.querySelector(select);
     } 
     
-    template(model: generics): string {
-        throw Error('Classe filha precisa implementar o método template')
-    }
+    abstract template(model: generics): string;
 
     update(model: generics): void {
         const template = this.template(model);
